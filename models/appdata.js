@@ -3,12 +3,12 @@ Schema = mongoose.Schema;
 
 var appModel = new Schema({
     name : {
-        type : string
+        type : String
     },
     validData  : {
-        type : boolean,
+        type : Boolean,
         default: false
     }
 })
 
-module.exports = mongoose.model("App", appModel);
+module.exports = mongoose.model("mongoModelData", appModel);
