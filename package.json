@@ -1,0 +1,25 @@
+{
+  "name": "cloudserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sainathsm/nodeserver.git"
+  },
+  "keywords": [
+    "Node",
+    "mongodb",
+    "node",
+    "server"
+  ],
+  "author": "Sainath SM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sainathsm/nodeserver/issues"
+  },
+  "homepage": "https://github.com/sainathsm/nodeserver#readme"
+}
