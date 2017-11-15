@@ -1,7 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 
-var db = mongoose.connect('mongodb://localhost/test', {
+var db = mongoose.connect('mongodb://localhost/appdata', {
     useMongoClient: true,
 });
 
@@ -15,16 +15,12 @@ var appRouter = express.Router();
 
 appRouter.route("/data")
     .get(function(req, res) {
-        var promise = mongoModelData.find()
-        
-        promise.then(function(err, data) {
+        mongoModelData.find(function(err, data) {
             if (err) 
                 res.status(500, err);
              else 
                 res.json(data);
-            
         });
-        promise.exec();
     });
 
 app.use("/api", appRouter);
