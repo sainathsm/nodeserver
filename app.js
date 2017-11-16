@@ -1,5 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
+var bodyParser = require("body-parser")
 
 var db = mongoose.connect('mongodb://localhost/appdata', {
     useMongoClient: true,
@@ -11,17 +12,10 @@ var mongoModelData = require("./models/appdata")
 var app = express();
 
 var port = process.env.port || 9000;
-var appRouter = express.Router();
+app.use(bodyParser.urlencoded({ extended: true}))
+app.use(bodyParser.json())
 
-appRouter.route("/data")
-    .get(function(req, res) {
-        mongoModelData.find(function(err, data) {
-            if (err) 
-                res.status(500, err);
-             else 
-                res.json(data);
-        });
-    });
+var appRouter = require("./routes/appdata.routes")(mongoModelData);
 
 app.use("/api", appRouter);
 
