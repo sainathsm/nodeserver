@@ -40,11 +40,23 @@ appRouter.use("/data/:id",function(req,res,next){
 }); 
 appRouter.route("/data/:id")
     .get(function(req, res) {
-            res.json();
+            res.json(req.data);
     })
     .put(function(req, res) {
-            req.data.name = req.body.name;
-            req.data.validData = req.body.validData;
+            req.data.productID = req.body.productID;
+            req.data.colour = req.body.colour;
+            req.data.rearcamera = req.body.rearcamera;
+			
+			
+            req.data.frontcamera = req.body.frontcamera;
+            req.data.processor = req.body.processor;
+            req.data.RAM = req.body.RAM
+			
+			
+            req.data.ROM = req.body.ROM;
+            req.data.SIM = req.body.SIM;
+            req.data.display = req.body.display;
+			
             req.data.save(); 
             res.json(req.data);
     }).delete(function(req, res) {

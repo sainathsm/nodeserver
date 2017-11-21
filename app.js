@@ -1,6 +1,8 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser")
+var cors = require('cors')
+
 
 var db = mongoose.connect('mongodb://localhost/appdata', {
     useMongoClient: true,
@@ -14,6 +16,8 @@ var app = express();
 var port = process.env.port || 9000;
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json())
+
+app.use(cors());
 
 var appRouter = require("./routes/appdata.routes")(mongoModelData);
 
